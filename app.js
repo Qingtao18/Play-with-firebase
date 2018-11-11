@@ -1,14 +1,31 @@
-import React, { Component } from 'react';
-var express       = require("express"),
-	app           = express(),
-	bodyParser    = require("body-parser")
+var firebase = require("firebase");
+var admin = require("firebase-admin");
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.set("view engine", "ejs")
-app.get("/", function(req,res){
-   res.render("landing");
+var serviceAccount = require("./test-fast-firebase-adminsdk-ka4jx-a2b46b2ae0.json");
+
+firebase.initializeApp();
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://test-fast.firebaseio.com"
 });
 
-app.listen(process.env.PORT, process.env.IP, function(){
-   console.log("The sever has started") 
+
+
+var db = firebase.database();
+var ref = db.ref("userDB");
+ref.once("value", function(snapshot) {
+    console.log(snapshot.val());
+});
+
+var usersRef = ref.child("users");
+usersRef.set({
+    alanisawesome: {
+        date_of_birth: "June 23, 1912",
+        full_name: "Alan Turing"
+    },
+    gracehop: {
+        date_of_birth: "December 9, 1906",
+        full_name: "Grace Hopper"
+    }
 });
