@@ -1,0 +1,19 @@
+{
+  "name": "backendtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Qingtao18/Play-with-firebase.git"
+  },
+  "author": "Qingtao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Qingtao18/Play-with-firebase/issues"
+  },
+  "homepage": "https://github.com/Qingtao18/Play-with-firebase#readme"
+}
